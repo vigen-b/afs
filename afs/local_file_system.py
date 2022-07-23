@@ -21,4 +21,5 @@ class LocalFileSystem(AbstractFileSystem):
         return str(shutil.copy(src_abs, dest_abs, *args))
 
     def mv(self, src, dest, *args):
-        return
+        (src_abs, dest_abs) = self._absolute_paths(src, dest)
+        return str(shutil.move(src_abs, dest_abs, *args))
